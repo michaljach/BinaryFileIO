@@ -42,14 +42,14 @@
     // hex NSString data to NSMutableData
     data = [data stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSMutableData *newData= [[NSMutableData alloc] init];
-    unsigned char whole_byte;
-    char byte_chars[3] = {'\0','\0','\0'};
+    unsigned char wholeByte;
+    char byteChars[3] = {'\0','\0','\0'};
     int i;
     for (i=0; i < [data length]/2; i++) {
-        byte_chars[0] = [data characterAtIndex:i*2];
-        byte_chars[1] = [data characterAtIndex:i*2+1];
-        whole_byte = strtol(byte_chars, NULL, 16);
-        [newData appendBytes:&whole_byte length:1];
+        byteChars[0] = [data characterAtIndex:i*2];
+        byteChars[1] = [data characterAtIndex:i*2+1];
+        wholeByte = strtol(byteChars, NULL, 16);
+        [newData appendBytes:&wholeByte length:1];
     }
 
     // write bytes to file
